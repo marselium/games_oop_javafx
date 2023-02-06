@@ -28,7 +28,7 @@ class BishopBlackTest {
     void isDiagonal() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C4);
         ImpossibleMoveException exception = assertThrows(ImpossibleMoveException.class,
-                ()->bishopBlack.way(Cell.C5));
+                () -> bishopBlack.way(Cell.C5));
         String expect = "Could not move by diagonal from C4 to C5";
         assertThat(exception.getMessage()).isEqualTo(expect);
     }

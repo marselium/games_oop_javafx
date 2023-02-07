@@ -40,4 +40,5 @@ public class LogicTest {
         });
         assertThat(exception.getMessage()).isEqualTo("Could not move by diagonal from C1 to G6");
     }
+
 }

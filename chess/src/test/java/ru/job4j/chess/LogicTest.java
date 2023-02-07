@@ -20,16 +20,20 @@ public class LogicTest {
     }
 
     @Test
-    public void move1()
-            throws OccupiedCellException, FigureNotFoundException, ImpossibleMoveException {
+    public void whenOccupiedCellException()
+            throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException{
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
         logic.add(new BishopBlack(Cell.G5));
-        logic.move(Cell.C1, Cell.H6);
+        OccupiedCellException exception = assertThrows(OccupiedCellException.class, () ->
+                logic.move(Cell.C1, Cell.G5));
+        assertThat(exception.getMessage()).isEqualTo("Cell is already engaged.");
     }
 
+
     @Test
-    public void whenMoveThenImpossibleMoveException() {
+    public void whenMoveThenImpossibleMoveException()
+            throws OccupiedCellException, FigureNotFoundException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
         ImpossibleMoveException exception = assertThrows(ImpossibleMoveException.class, () -> {

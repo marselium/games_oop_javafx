@@ -10,21 +10,23 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class BishopBlackTest {
 
     @Test
-    void position() {
+    void whenBishopPositionD6ThenExpectPositionTrue () {
         BishopBlack bishopBlack = new BishopBlack(Cell.D6);
         Cell expect = Cell.D6;
         assertThat(bishopBlack.position()).isEqualTo(expect);
     }
 
     @Test
-    void way() {
+    void whenWayFromC1ToG5ThenCellD2ToCellG5() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         bishopBlack.way(Cell.G5);
-
+        Cell[] result = bishopBlack.way(Cell.G5);
+        Cell[] expected = new Cell[] {Cell.D2,Cell.E3,Cell.F4,Cell.G5};
+        assertThat(result).containsExactly(expected);
     }
 
     @Test
-    void isDiagonal() {
+    void whenNotDiagonalThenThrowsImpossibleMoveException() {
         BishopBlack bishopBlack = new BishopBlack(Cell.C4);
         ImpossibleMoveException exception = assertThrows(ImpossibleMoveException.class,
                 () -> bishopBlack.way(Cell.C5));
@@ -35,7 +37,7 @@ class BishopBlackTest {
     @Test
     void copy() {
         BishopBlack bishopBlack = new BishopBlack(Cell.D6);
-        Cell expect = Cell.D6;
-        assertThat(bishopBlack.copy(Cell.D6).position()).isEqualTo(expect);
+        Cell expect = Cell.F8;
+        assertThat(bishopBlack.copy(Cell.F8).position()).isEqualTo(expect);
     }
 }

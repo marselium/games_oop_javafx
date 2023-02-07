@@ -24,7 +24,7 @@ public final class Logic {
         for (Figure figure : figures) {
             for (Cell step : steps) {
                 if (figure != null && figure.position().equals(step)) {
-                    return false;
+                    throw new OccupiedCellException("Cell is already engaged.");
                 }
             }
         }

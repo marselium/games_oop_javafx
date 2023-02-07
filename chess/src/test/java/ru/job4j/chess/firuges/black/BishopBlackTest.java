@@ -11,7 +11,7 @@ class BishopBlackTest {
 
     @Test
     void whenBishopPositionD6ThenExpectPositionTrue () {
-        BishopBlack bishopBlack = new BishopBlack(Cell.D6);
+        BishopBlack bishopBlack = new BishopBlack (Cell.D6);
         Cell expect = Cell.D6;
         assertThat(bishopBlack.position()).isEqualTo(expect);
     }
@@ -21,7 +21,7 @@ class BishopBlackTest {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         bishopBlack.way(Cell.G5);
         Cell[] result = bishopBlack.way(Cell.G5);
-        Cell[] expected = new Cell[] {Cell.D2,Cell.E3,Cell.F4,Cell.G5};
+        Cell[] expected = new Cell[] {Cell.D2, Cell.E3, Cell.F4, Cell.G5};
         assertThat(result).containsExactly(expected);
     }
 

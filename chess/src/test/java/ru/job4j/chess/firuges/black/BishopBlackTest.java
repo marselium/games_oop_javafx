@@ -40,4 +40,5 @@ class BishopBlackTest {
         Cell expect = Cell.F8;
         assertThat(bishopBlack.copy(Cell.F8).position()).isEqualTo(expect);
     }
+
 }

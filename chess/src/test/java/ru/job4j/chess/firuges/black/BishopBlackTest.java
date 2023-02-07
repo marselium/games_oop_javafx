@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class BishopBlackTest {
 
     @Test
-    void whenBishopPositionD6ThenExpectPositionTrue () {
+    void whenBishopPositionD6ThenExpectPositionTrue() {
         BishopBlack bishopBlack = new BishopBlack (Cell.D6);
         Cell expect = Cell.D6;
         assertThat(bishopBlack.position()).isEqualTo(expect);
@@ -40,4 +40,5 @@ class BishopBlackTest {
         Cell expect = Cell.F8;
         assertThat(bishopBlack.copy(Cell.F8).position()).isEqualTo(expect);
     }
+
 }
